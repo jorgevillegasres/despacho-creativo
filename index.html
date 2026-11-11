@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despacho Creativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-menu-container">
+        <header>
+            <h1>DESPACHO CREATIVO</h1>
+        </header>
+ <nav class="main-menu">
+    <input type="text" id="player-name" class="menu-input" placeholder="Escribe tu nombre aquí">
+    
+    <div id="case-selection-menu">
+        </div>
+
+    <button id="load-game-button" class="menu-button" style="margin-top: 20px;">Cargar Partida</button>
+</nav>
+    </div>
+
+    <div id="game-container">
+        <div id="background-scene"></div>
+        <div id="character-area">
+            <img id="avatar-image" src="" alt="Avatar del personaje">
+        </div>
+        <div id="dialogue-area">
+            <div id="dialogue-box">
+                <p id="character-name"></p>
+                <p id="dialogue-text"></p>
+            </div>
+            <div id="choices-box"></div>
+        </div>
+        <div id="tooltip"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

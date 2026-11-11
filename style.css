@@ -1,0 +1,316 @@
+/* Importar una fuente similar a la de la imagen desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+body {
+    background-image: url('bg/inicial.png'); /* Fondo del menú */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- ESTILOS DEL MENÚ DE INICIO --- */
+
+#main-menu-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#main-menu-container h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5em;
+    color: #3a2e28;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 760px;
+}
+
+/* Nombre del jugador y botón de carga conservan el ancho original */
+.main-menu > .menu-input,
+.main-menu > .menu-button {
+    max-width: 350px;
+}
+
+/* Lista de casos: dos columnas, agrupada por área, con desplazamiento propio */
+#case-selection-menu {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    max-height: 56vh;
+    overflow-y: auto;
+    padding: 4px 10px 10px;
+    box-sizing: border-box;
+}
+
+.menu-area {
+    grid-column: 1 / -1;
+    margin: 8px 0 0;
+    padding: 6px 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.05em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    text-align: left;
+    background-color: rgba(58, 46, 40, 0.88);
+    border-radius: 8px;
+}
+
+.menu-button.case-button {
+    margin: 0;
+    padding: 12px 10px;
+    font-size: 1.02em;
+    line-height: 1.25;
+}
+
+@media (max-width: 640px) {
+    #case-selection-menu {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ventanas bajas (portátiles pequeños): menú más compacto para que no se corte */
+@media (max-height: 680px) {
+    #main-menu-container {
+        padding: 10px 20px;
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+
+    #main-menu-container h1 {
+        font-size: 2.4em;
+        margin: 6px 0 12px;
+    }
+
+    .menu-input {
+        padding: 9px;
+        margin-bottom: 10px;
+    }
+
+    #case-selection-menu {
+        max-height: 52vh;
+    }
+
+    .main-menu > .menu-button {
+        padding: 10px 0;
+        font-size: 1.15em;
+        margin: 6px 0;
+    }
+
+    #load-game-button {
+        margin-top: 10px !important; /* index.html le fija 20px en línea */
+    }
+}
+
+.menu-button {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #c5b8af;
+    color: #4f3f37;
+    padding: 18px 0;
+    margin: 12px 0;
+    font-size: 1.5em;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu-button:hover:not([disabled]) {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+}
+
+.menu-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* --- ESTILOS DEL JUEGO (Novela Visual) --- */
+
+#game-container {
+    display: none; /* El juego comienza oculto */
+    width: 1280px;
+    height: 720px;
+    flex-shrink: 0; /* Conserva la proporción; game.js lo reduce a escala si la ventana es menor */
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.7);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+#background-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.8s ease-in-out;
+    z-index: 1;
+}
+
+#character-area {
+    position: absolute; /* Relativo al escenario, para que se reduzca junto con él */
+    bottom: 0;
+    left: 30%;
+    transform: translateX(-50%); /* Centra el área del personaje */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 500px; /* Limita el tamaño para no desbordar en pantallas muy grandes */
+    height: 100%; /* Toda la altura del escenario; el avatar se apoya en la base */
+    display: flex;
+    justify-content: center; /* Centra el avatar dentro de su área */
+    align-items: flex-end; /* Alinea el avatar a la parte inferior de su área */
+    pointer-events: none; /* Permite clics a través de esta área si es necesario */
+    z-index: 5; /* Asegurar que el avatar esté por encima del fondo pero debajo del diálogo */
+}
+
+#avatar-image {
+    max-height: 92%; /* Ocupa hasta el 92% de la altura del escenario */
+    max-width: 100%; /* No se desborda del área del personaje */
+    object-fit: contain; /* Asegura que la imagen sea visible sin cortarse */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5)); /* Sombra suave para que destaque */
+    transform: translateX(0) scaleX(1); /* Resetear transform y scaleX para el flip */
+}
+
+/* Clases para controlar la dirección del avatar */
+.avatar-left {
+    transform: translateX(0) scaleX(1); /* Mirando a la izquierda (por defecto) */
+}
+
+.avatar-right {
+    transform: translateX(0) scaleX(-1); /* Mirando a la derecha */
+}
+
+#dialogue-area {
+    position: absolute;
+    bottom: 30px; /* Aumentamos el espacio inferior */
+    right: 30px;  /* Aumentamos el espacio derecho */
+    width: 60%;   /* Reducimos el ancho para evitar solapamiento */
+    z-index: 10;
+}
+
+#dialogue-box, #choices-box {
+    display: block;
+}
+
+#dialogue-box {
+    background-color: rgba(10, 20, 30, 0.88);
+    padding: 30px; /* Más espacio interno para el texto */
+    border-radius: 10px;
+    border: 1px solid rgba(139, 195, 74, 0.4);
+    backdrop-filter: blur(3px);
+    margin-bottom: 20px;
+}
+
+#character-name {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #8BC34A;
+    margin: 0 0 10px 0;
+    text-shadow: 1px 1px 4px black;
+}
+
+#dialogue-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #f0f0f0;
+    min-height: 70px;
+}
+
+.keyword {
+    color: #FFEB3B;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: help;
+    font-weight: bold;
+}
+
+#tooltip {
+    display: none;
+    position: absolute;
+    background-color: #212121;
+    color: #fff;
+    border: 1px solid #FFEB3B;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1em;
+    max-width: 320px;
+    min-width: 200px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    line-height: 1.5;
+    pointer-events: none;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+#choices-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Hacemos que los botones ocupen todo el ancho */
+    gap: 10px; /* Espacio entre botones */
+}
+
+.choice-button {
+    background-color: rgba(104, 159, 56, 0.9);
+    color: white;
+    border: 1px solid #8BC34A;
+    padding: 15px 25px; /* Aumentamos el padding vertical para más altura */
+    font-size: 1.2em;   /* Hacemos la fuente un poco más grande */
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: left; /* Alineamos el texto a la izquierda para un look más limpio */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.choice-button:hover {
+    background-color: #8BC34A; /* Color más brillante al pasar el ratón */
+    transform: scale(1.02); /* Ligero zoom para dar feedback */
+}
+
+.menu-input {
+    width: 95%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #c5b8af;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: 'Cinzel', serif;
+}
