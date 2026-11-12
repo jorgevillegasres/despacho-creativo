@@ -1,6 +1,6 @@
 # Personajes de Despacho Creativo
 
-Reparto propuesto y prompts para generar las imágenes con el mismo diseño de los avatares actuales.
+Reparto del juego y prompts con los que se generaron las imágenes. Los catorce personajes de la tabla ya están en el juego; los prompts sirven de modelo para crear personajes nuevos con el mismo diseño.
 
 ## Cómo usar este archivo
 
@@ -19,16 +19,16 @@ Reparto propuesto y prompts para generar las imágenes con el mismo diseño de l
 | Orientación | Cuerpo girado levemente hacia la derecha de quien mira, rostro al frente |
 | Prohibido | Texto, letras, logotipos, marcas de agua, fondos con escenario |
 
-El encuadre importa: `avatar_ricardo.png` y `avatar_anselmo.png` son de cuerpo entero y en el juego se ven más pequeños que Villegas. Al final hay prompts para rehacerlos con el encuadre común.
+El encuadre importa: un personaje de cuerpo entero se ve en el juego más pequeño que los demás. Por eso Ricardo y Anselmo, que estaban dibujados así, se rehicieron con el encuadre común; sus prompts están al final.
 
 ## Reparto
 
-| Prioridad | Id | Archivo | Quién es | Dónde aparece |
+| Grupo | Id | Archivo | Quién es | Dónde aparece |
 |---|---|---|---|---|
-| Ya existe | `villegas` | `avatar_villegas.png` | Abogado titular del despacho | Todos los casos |
-| Ya existe | `sofia` | `avatar_sofia.png` | Compositora | Casos 1 y 6 |
-| Ya existe | `ricardo` | `avatar_ricardo.png` | Productor musical | Caso 1 |
-| Ya existe | `anselmo` | `avatar_anselmo.png` | Dueño del restaurante campestre | Caso 6 |
+| Reparto original | `villegas` | `avatar_villegas.png` | Abogado titular del despacho | Todos los casos |
+| Reparto original | `sofia` | `avatar_sofia.png` | Compositora | Casos 1 y 6 |
+| Reparto original | `ricardo` | `avatar_ricardo.png` | Productor musical | Caso 1 |
+| Reparto original | `anselmo` | `avatar_anselmo.png` | Dueño del restaurante campestre | Caso 6 |
 | A. Clientes | `elena` | `avatar_elena.png` | Escritora, autora del manuscrito | Caso 2 |
 | A. Clientes | `hernan` | `avatar_hernan.png` | Editor jurídico | Caso 3 |
 | A. Clientes | `valentina` | `avatar_valentina.png` | Ingeniera de software | Caso 4 |
@@ -40,7 +40,7 @@ El encuadre importa: `avatar_ricardo.png` y `avatar_anselmo.png` son de cuerpo e
 | C. Autoridades | `inspectora` | `avatar_inspectora.png` | Inspectora de policía | Caso 6 |
 | C. Autoridades | `laura` | `avatar_laura.png` | Funcionaria de la DNDA (registro) | Caso 2 |
 
-Con el grupo A cada caso tiene su propio cliente, y Sofía y Ricardo dejan de representar a varias personas distintas. Con el grupo B la contraparte aparece y discute en pantalla, en vez de ser solo citada. El grupo C sirve para estos casos y para los que se escriban después.
+Cada caso tiene su propio cliente (grupo A), la contraparte aparece y discute en pantalla en vez de ser solo citada (grupo B), y las autoridades (grupo C) sirven para estos casos y para los que se escriban después. El caso 3 es el único sin contraparte en escena.
 
 ## Bloque de estilo
 
@@ -122,9 +122,9 @@ A Colombian woman about forty years old, a municipal police inspector, a civilia
 A Colombian woman in her mid-thirties, a public official at a copyright registry office. Light brown skin, straight black bob haircut. Emerald-green blazer over a white blouse, dark trousers. She holds an open plain folder with a blank certificate inside, offering it forward with both hands. Friendly, professional smile. Clean modern anime / webtoon style character illustration, like a visual-novel character sprite. Crisp dark-brown outlines of even weight, flat cel shading with one soft shadow tone and subtle gradients, muted natural colors, realistic adult proportions, simple expressive face with a small nose and clearly drawn eyes. Three-quarter length shot from mid-thigh up, standing upright, body turned slightly to the viewer's right, face toward the viewer, character centered and filling about 90% of the frame height, legs cropped by the bottom edge. Soft even lighting from the front, no cast shadow. Plain pure white background, nothing else in the frame. No text, no letters, no logos, no watermark, no border. Vertical 3:4 image.
 ```
 
-## Opcional: rehacer dos avatares con el encuadre común
+## Dos avatares rehechos con el encuadre común
 
-Estos prompts describen a los personajes tal como están hoy, pero de medio muslo hacia arriba. Si el generador lo permite, adjunta también la imagen actual del personaje como referencia.
+Ricardo y Anselmo estaban dibujados de cuerpo entero. Con estos prompts se rehicieron de medio muslo hacia arriba, usando la imagen anterior como referencia.
 
 ### Ricardo, productor musical (`avatar_ricardo.png`)
 

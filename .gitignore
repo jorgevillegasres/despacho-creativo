@@ -1,2 +1,5 @@
 # Ajustes locales de herramientas: no forman parte del juego
 .claude/
+
+# Respaldos de los avatares de cuerpo entero: el juego no los usa
+avatares/*_cuerpo_entero.png

@@ -30,7 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
         villegas: 'Villegas',
         anselmo: 'Anselmo',
         sofia: 'Sofía',
-        ricardo: 'Ricardo'
+        ricardo: 'Ricardo',
+        elena: 'Elena',
+        hernan: 'Hernán',
+        valentina: 'Valentina',
+        julian: 'Julián',
+        martin: 'Martín',
+        octavio: 'Octavio',
+        fabio: 'Fabio',
+        jueza: 'Jueza',
+        inspectora: 'Inspectora',
+        laura: 'Laura'
     };
 
     // Orden en que se agrupan los casos en el menú
@@ -43,6 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
         anselmo: "avatares/avatar_anselmo.png",
         sofia: "avatares/avatar_sofia.png",
         ricardo: "avatares/avatar_ricardo.png",
+        elena: "avatares/avatar_elena.png",
+        hernan: "avatares/avatar_hernan.png",
+        valentina: "avatares/avatar_valentina.png",
+        julian: "avatares/avatar_julian.png",
+        martin: "avatares/avatar_martin.png",
+        octavio: "avatares/avatar_octavio.png",
+        fabio: "avatares/avatar_fabio.png",
+        jueza: "avatares/avatar_jueza.png",
+        inspectora: "avatares/avatar_inspectora.png",
+        laura: "avatares/avatar_laura.png",
         none: ""
     };
     
@@ -298,12 +318,12 @@ document.addEventListener('DOMContentLoaded', () => {
             startNode: 'caso2_start',
             title: 'Caso 2: El Manuscrito y el Registro',
             nodes: {
-                caso2_start: { background: 'oficina', speaker: 'sofia', text: 'Gracias por recibirme. Durante tres años escribí unas memorias sobre mi abuelo. Nunca las publiqué ni las registré. Le presté el manuscrito a Martín, un escritor conocido, para que me diera su opinión. Hoy su novela está en las librerías: es mi texto con otro final, y él figura como autor.', next: 'caso2_presentacion_2', avatarDirection: 'right' },
-                caso2_presentacion_2: { background: 'oficina', speaker: 'sofia', text: 'Cuando le reclamé me mostró un certificado de la <keyword>DNDA</keyword>: registró la novela a su nombre hace seis meses. Me dijo: “La registré yo, así que es mía”.', next: 'caso2_pregunta_1', avatarDirection: 'right' },
+                caso2_start: { background: 'oficina', speaker: 'elena', text: 'Gracias por recibirme, Doctor Villegas. Durante tres años escribí unas memorias sobre mi abuelo. Nunca las publiqué ni las registré. Le presté el manuscrito a Martín, un escritor conocido, para que me diera su opinión. Hoy su novela está en las librerías: es mi texto con otro final, y él figura como autor.', next: 'caso2_presentacion_2', avatarDirection: 'right' },
+                caso2_presentacion_2: { background: 'oficina', speaker: 'martin', text: 'Elena exagera. Yo inscribí la novela en la <keyword>DNDA</keyword> a mi nombre hace seis meses y tengo el certificado oficial. La registré yo, así que la obra es mía.', next: 'caso2_pregunta_1', avatarDirection: 'right' },
                 caso2_pregunta_1: {
                     background: 'oficina',
                     speaker: 'villegas',
-                    text: 'Empecemos por lo básico, ${playerName}. Sofía nunca hizo el <keyword>registro</keyword> de su manuscrito y Martín sí registró la novela. ¿Perdió Sofía su derecho?',
+                    text: 'Empecemos por lo básico, ${playerName}. Elena nunca hizo el <keyword>registro</keyword> de su manuscrito y Martín sí registró la novela. ¿Perdió Elena su derecho?',
                     choices: [
                         { text: 'No. El derecho nace con la creación; el registro solo lo declara.', next: 'caso2_r1_ok', efecto: 1 },
                         { text: 'Sí. El derecho de autor es de quien registra primero.', next: 'caso2_r1_badA', efecto: -1 },
@@ -323,35 +343,63 @@ document.addEventListener('DOMContentLoaded', () => {
                     ],
                     avatarDirection: 'left'
                 },
-                caso2_r2_badA: { speaker: 'villegas', text: 'No. La inscripción crea una presunción que cede ante la prueba en contrario, y además deja a salvo los derechos de terceros (Decisión 351, art. 53). Sofía es precisamente ese tercero.', next: 'caso2_r1_ok', avatarDirection: 'left' },
-                caso2_r2_badB: { speaker: 'villegas', text: 'Tampoco. El <keyword>registro</keyword> no crea el derecho, pero da una ventaja probatoria: hoy es Sofía quien debe desvirtuar lo que dice el certificado. Por eso conviene registrar.', next: 'caso2_r1_ok', avatarDirection: 'left' },
+                caso2_r2_badA: { speaker: 'villegas', text: 'No. La inscripción crea una presunción que cede ante la prueba en contrario, y además deja a salvo los derechos de terceros (Decisión 351, art. 53). Elena es precisamente ese tercero.', next: 'caso2_r1_ok', avatarDirection: 'left' },
+                caso2_r2_badB: { speaker: 'villegas', text: 'Tampoco. El <keyword>registro</keyword> no crea el derecho, pero da una ventaja probatoria: hoy es Elena quien debe desvirtuar lo que dice el certificado. Por eso conviene registrar.', next: 'caso2_r1_ok', avatarDirection: 'left' },
                 caso2_r2_ok: {
                     speaker: 'villegas',
-                    text: 'Bien. Nos toca probar que el manuscrito es anterior: borradores, correos con fecha, testigos, el archivo que ella le envió. Martín ya anunció su defensa: “Solo tomé la idea; la vida de un abuelo no es de nadie”. ¿Qué respondemos?',
+                    text: 'Bien. Nos toca probar que el manuscrito de Elena es anterior: borradores, correos con fecha, testigos, el archivo que ella le envió. Escuchemos cómo se defiende Martín.',
+                    next: 'caso2_martin_idea',
+                    avatarDirection: 'left'
+                },
+                caso2_martin_idea: {
+                    background: 'oficina',
+                    speaker: 'martin',
+                    text: 'Solo tomé la idea; la vida de un abuelo en el campo no es propiedad de nadie. Además le cambié el final.',
+                    next: 'caso2_pregunta_3',
+                    avatarDirection: 'right'
+                },
+                caso2_pregunta_3: {
+                    background: 'oficina',
+                    speaker: 'villegas',
+                    text: 'Martín alega que solo tomó la idea y que cambió el final. ¿Qué respondemos, ${playerName}?',
                     choices: [
-                        { text: 'Las ideas y los hechos son libres; lo protegido es la forma en que Sofía los expresó. Hay que comparar los textos.', next: 'caso2_r3_ok', efecto: 1 },
+                        { text: 'Las ideas y los hechos son libres; lo protegido es la forma en que Elena los expresó. Hay que comparar los textos.', next: 'caso2_r3_ok', efecto: 1 },
                         { text: 'Las ideas también se protegen: nadie más puede escribir sobre ese abuelo.', next: 'caso2_r3_badA', efecto: -1 },
                         { text: 'Tiene razón: si cambió el final, ya es una obra distinta.', next: 'caso2_r3_badB', efecto: -1 }
                     ],
                     avatarDirection: 'left'
                 },
-                caso2_r3_badA: { speaker: 'villegas', text: 'Cuidado: no son objeto de protección las ideas contenidas en las obras (Decisión 351, art. 7). Cualquiera puede escribir sobre el abuelo. Lo que nadie puede hacer es copiar la forma en que Sofía lo contó.', next: 'caso2_r2_ok', avatarDirection: 'left' },
-                caso2_r3_badB: { speaker: 'villegas', text: 'No. Cambiar el final no borra la copia del resto. Lo que se compara es la expresión: párrafos, estructura, giros propios. Si eso es de Sofía, hay <keyword>reproducción</keyword> y transformación no autorizadas.', next: 'caso2_r2_ok', avatarDirection: 'left' },
+                caso2_r3_badA: { speaker: 'villegas', text: 'Cuidado: no son objeto de protección las ideas contenidas en las obras (Decisión 351, art. 7). Cualquiera puede escribir sobre el abuelo. Lo que nadie puede hacer es copiar la forma en que Elena lo contó.', next: 'caso2_pregunta_3', avatarDirection: 'left' },
+                caso2_r3_badB: { speaker: 'villegas', text: 'No. Cambiar el final no borra la copia del resto. Lo que se compara es la expresión: párrafos, estructura, giros propios. Si eso es de Elena, hay <keyword>reproducción</keyword> y transformación no autorizadas.', next: 'caso2_pregunta_3', avatarDirection: 'left' },
                 caso2_r3_ok: {
                     speaker: 'villegas',
-                    text: 'Correcto: se protege la forma, no la idea (Decisión 351, art. 7). Martín tiene un segundo argumento: dice que su novela es una “adaptación” y que por eso es una <keyword>obra derivada</keyword> que le pertenece. ¿Es así?',
+                    text: 'Correcto: se protege la forma, no la idea (Decisión 351, art. 7). Pero Martín insiste con un segundo argumento.',
+                    next: 'caso2_martin_derivada',
+                    avatarDirection: 'left'
+                },
+                caso2_martin_derivada: {
+                    background: 'oficina',
+                    speaker: 'martin',
+                    text: 'Mi novela es una adaptación libre de ese borrador. Por lo tanto, es una <keyword>obra derivada</keyword> independiente y los derechos sobre ella me pertenecen.',
+                    next: 'caso2_pregunta_4',
+                    avatarDirection: 'right'
+                },
+                caso2_pregunta_4: {
+                    background: 'oficina',
+                    speaker: 'villegas',
+                    text: 'Martín sostiene que su novela es una “adaptación” y que por eso es una <keyword>obra derivada</keyword> que le pertenece. ¿Es así, ${playerName}?',
                     choices: [
-                        { text: 'Solo si tuviera autorización previa de Sofía; sin ella, la adaptación es una infracción.', next: 'caso2_r4_ok', efecto: 1 },
+                        { text: 'Solo si tuviera autorización previa de Elena; sin ella, la adaptación es una infracción.', next: 'caso2_r4_ok', efecto: 1 },
                         { text: 'Sí. Toda transformación crea una obra nueva e independiente.', next: 'caso2_r4_badA', efecto: -1 },
                         { text: 'No, porque las adaptaciones nunca tienen protección.', next: 'caso2_r4_badB', efecto: -1 }
                     ],
                     avatarDirection: 'left'
                 },
-                caso2_r4_badA: { speaker: 'villegas', text: 'Falta la mitad de la regla. La adaptación es una obra distinta de la original, pero sin perjuicio de los derechos del autor de la obra preexistente y de su previa autorización (Decisión 351, art. 5).', next: 'caso2_r3_ok', avatarDirection: 'left' },
-                caso2_r4_badB: { speaker: 'villegas', text: 'Sí la tienen: traducciones, adaptaciones y arreglos son obras protegidas. Pero la condición es la autorización previa del autor de la obra original (Decisión 351, art. 5). Aquí no la hubo.', next: 'caso2_r3_ok', avatarDirection: 'left' },
+                caso2_r4_badA: { speaker: 'villegas', text: 'Falta la mitad de la regla. La adaptación es una obra distinta de la original, pero sin perjuicio de los derechos del autor de la obra preexistente y de su previa autorización (Decisión 351, art. 5).', next: 'caso2_pregunta_4', avatarDirection: 'left' },
+                caso2_r4_badB: { speaker: 'villegas', text: 'Sí la tienen: traducciones, adaptaciones y arreglos son obras protegidas. Pero la condición es la autorización previa del autor de la obra original (Decisión 351, art. 5). Aquí no la hubo.', next: 'caso2_pregunta_4', avatarDirection: 'left' },
                 caso2_r4_ok: {
                     speaker: 'villegas',
-                    text: 'Así es. Queda lo más personal. Martín publicó lo que Sofía mantenía guardado, puso su propio nombre (eso es <keyword>plagio</keyword>) y le cambió el final. ¿Qué <keyword>derechos morales</keyword> están comprometidos?',
+                    text: 'Así es. Queda lo más personal. Martín publicó lo que Elena mantenía guardado, puso su propio nombre (eso es <keyword>plagio</keyword>) y le cambió el final. ¿Qué <keyword>derechos morales</keyword> están comprometidos?',
                     choices: [
                         { text: 'Tres: decidir la divulgación, la paternidad y la integridad de la obra.', next: 'caso2_r5_ok', efecto: 1 },
                         { text: 'Ninguno: los perdió al entregarle el manuscrito.', next: 'caso2_r5_badA', efecto: -1 },
@@ -360,8 +408,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     avatarDirection: 'left'
                 },
                 caso2_r5_badA: { speaker: 'villegas', text: 'Entregar el papel no es entregar el derecho: los derechos de autor son independientes de la propiedad del objeto material que contiene la obra (Decisión 351, art. 6). Y los <keyword>morales</keyword>, además, son inalienables.', next: 'caso2_r4_ok', avatarDirection: 'left' },
-                caso2_r5_badB: { speaker: 'villegas', text: 'Los <keyword>derechos morales</keyword> son imprescriptibles e irrenunciables (Decisión 351, art. 11). Sofía puede reivindicar su <keyword>paternidad</keyword> en cualquier momento.', next: 'caso2_r4_ok', avatarDirection: 'left' },
-                caso2_r5_ok: { speaker: 'villegas', text: 'Exacto: divulgación, <keyword>paternidad</keyword> e <keyword>integridad</keyword> (Decisión 351, art. 11). Pediremos que se reconozca su autoría, el retiro de los ejemplares y la indemnización. Y esta vez Sofía registrará su obra.', next: 'evaluar_final_caso2', avatarDirection: 'left' },
+                caso2_r5_badB: { speaker: 'villegas', text: 'Los <keyword>derechos morales</keyword> son imprescriptibles e irrenunciables (Decisión 351, art. 11). Elena puede reivindicar su <keyword>paternidad</keyword> en cualquier momento.', next: 'caso2_r4_ok', avatarDirection: 'left' },
+                caso2_r5_ok: { speaker: 'villegas', text: 'Exacto: divulgación, <keyword>paternidad</keyword> e <keyword>integridad</keyword> (Decisión 351, art. 11). Pediremos que se reconozca su autoría, el retiro de los ejemplares y la indemnización. Y acompañaremos a Elena a registrar su obra en la <keyword>DNDA</keyword>.', next: 'caso2_laura_registro', avatarDirection: 'left' },
+                caso2_laura_registro: {
+                    background: 'oficina',
+                    speaker: 'laura',
+                    text: 'Bienvenida a la <keyword>DNDA</keyword>, señora Elena. Aquí tiene el certificado de <keyword>registro</keyword> de su manuscrito. Su derecho nació cuando lo escribió; la inscripción no lo crea, pero hace presumir ciertos los hechos inscritos mientras nadie pruebe lo contrario.',
+                    next: 'evaluar_final_caso2',
+                    avatarDirection: 'right'
+                },
                 evaluar_final_caso2: {
                     logic: true,
                     onLoad: () => {
@@ -370,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         else showNode('caso2_final_repaso');
                     }
                 },
-                caso2_final_excelente: { speaker: 'villegas', text: 'Impecable, ${playerName}. Distinguiste creación y registro, idea y forma, y los tres derechos morales en juego. Sofía está en buenas manos.', end: true, avatarDirection: 'left' },
+                caso2_final_excelente: { speaker: 'villegas', text: 'Impecable, ${playerName}. Distinguiste creación y registro, idea y forma, y los tres derechos morales en juego. Elena está en buenas manos.', end: true, avatarDirection: 'left' },
                 caso2_final_adecuado: { speaker: 'villegas', text: 'Buen trabajo, ${playerName}. Llegaste a la solución, con algunos tropiezos. Repasa el valor probatorio del registro y el régimen de la obra derivada.', end: true, avatarDirection: 'left' },
                 caso2_final_repaso: { speaker: 'villegas', text: '${playerName}, conviene volver sobre lo esencial: la protección nace con la creación, se protege la forma y no la idea, y los derechos morales no se pierden. Repasa la Decisión 351, arts. 5, 7, 11, 52 y 53.', end: true, avatarDirection: 'left' }
             }
@@ -383,12 +438,12 @@ document.addEventListener('DOMContentLoaded', () => {
             startNode: 'caso3_start',
             title: 'Caso 3: El Código en Carpeta',
             nodes: {
-                caso3_start: { background: 'oficina', speaker: 'ricardo', text: 'Gracias por recibirme. Mi editorial publica desde hace diez años un Código Civil concordado: cada artículo lleva concordancias, notas y un índice analítico que elaboró nuestro equipo. Un competidor está vendiendo un folleto en carpeta plástica idéntico al nuestro, a mitad de precio.', next: 'caso3_presentacion_2', avatarDirection: 'right' },
-                caso3_presentacion_2: { background: 'oficina', speaker: 'ricardo', text: 'Copió el texto de la ley, pero también nuestras concordancias, el índice y hasta los errores de digitación. Quiero que nadie más pueda publicar ese Código.', next: 'caso3_pregunta_1', avatarDirection: 'right' },
+                caso3_start: { background: 'oficina', speaker: 'hernan', text: 'Gracias por recibirme, Doctor Villegas. Mi editorial publica desde hace diez años un Código Civil concordado: cada artículo lleva concordancias, notas y un índice analítico que elaboró nuestro equipo. Un competidor está vendiendo un folleto en carpeta plástica idéntico al nuestro, a mitad de precio.', next: 'caso3_presentacion_2', avatarDirection: 'right' },
+                caso3_presentacion_2: { background: 'oficina', speaker: 'hernan', text: 'Copió el texto de la ley, pero también nuestras concordancias, el índice y hasta los errores de digitación. Quiero que nadie más pueda publicar ese Código.', next: 'caso3_pregunta_1', avatarDirection: 'right' },
                 caso3_pregunta_1: {
                     background: 'oficina',
                     speaker: 'villegas',
-                    text: 'Ricardo pide más de lo que el derecho le da, ${playerName}. ¿Puede impedir que otros publiquen el texto del Código Civil?',
+                    text: 'Hernán pide más de lo que el derecho le da, ${playerName}. ¿Puede impedir que otros publiquen el texto del Código Civil?',
                     choices: [
                         { text: 'No. El texto de la ley es público; nadie puede apropiárselo.', next: 'caso3_r1_ok', efecto: 1 },
                         { text: 'Sí, porque su editorial lo publicó primero.', next: 'caso3_r1_badA', efecto: -1 },
@@ -400,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 caso3_r1_badB: { speaker: 'villegas', text: 'El <keyword>registro</keyword> no convierte en propio lo que es de todos. Declara derechos sobre una <keyword>obra</keyword>; no los crea, y menos sobre el texto de una ley.', next: 'caso3_pregunta_1', avatarDirection: 'left' },
                 caso3_r1_ok: {
                     speaker: 'villegas',
-                    text: 'Correcto. Entonces afinemos: si el texto legal es de todos, ¿qué parte de la edición de Ricardo sí está protegida?',
+                    text: 'Correcto. Entonces afinemos: si el texto legal es de todos, ¿qué parte de la edición de Hernán sí está protegida?',
                     choices: [
                         { text: 'Lo que su equipo creó: la selección, las concordancias, las notas y el índice.', next: 'caso3_r2_ok', efecto: 1 },
                         { text: 'Nada. Si el contenido es ley, toda la edición es de dominio público.', next: 'caso3_r2_badA', efecto: -1 },
@@ -436,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 caso3_r4_badB: { speaker: 'villegas', text: 'La ley presume, salvo pacto en contrario, que los <keyword>derechos patrimoniales</keyword> pasan al empleador en la medida necesaria para sus actividades habituales, siempre que el contrato conste por escrito (Ley 23 de 1982, art. 20).', next: 'caso3_r3_ok', avatarDirection: 'left' },
                 caso3_r4_ok: {
                     speaker: 'villegas',
-                    text: 'Correcto: con contrato escrito opera la presunción de transferencia al empleador (Ley 23 de 1982, art. 20). Última cuestión. Ricardo quiere “que lo arruinen”. Según el Tribunal Andino, ¿cómo se mide la indemnización?',
+                    text: 'Correcto: con contrato escrito opera la presunción de transferencia al empleador (Ley 23 de 1982, art. 20). Última cuestión. Hernán quiere “que lo arruinen”. Según el Tribunal Andino, ¿cómo se mide la indemnización?',
                     choices: [
                         { text: 'Por el daño efectivamente sufrido y probado: ni más ni menos.', next: 'caso3_r5_ok', efecto: 1 },
                         { text: 'Por lo que haga falta para castigar al infractor y que no reincida.', next: 'caso3_r5_badA', efecto: -1 },
@@ -468,12 +523,12 @@ document.addEventListener('DOMContentLoaded', () => {
             startNode: 'caso4_start',
             title: 'Caso 4: Una Licencia, Veinte Equipos',
             nodes: {
-                caso4_start: { background: 'oficina', speaker: 'sofia', text: 'Gracias por recibirme. Soy ingeniera. Desarrollé un programa de contabilidad y se lo licencié a una firma de asesores: una licencia, para un solo equipo. Ayer fui a darles soporte y lo encontré instalado en la red, funcionando en veinte computadores.', next: 'caso4_presentacion_2', avatarDirection: 'right' },
-                caso4_presentacion_2: { background: 'oficina', speaker: 'sofia', text: 'El gerente me dijo que ya pagaron y que el programa es de ellos. Además tienen copias en varios discos “por seguridad”. ¿Puedo hacer algo?', next: 'caso4_pregunta_1', avatarDirection: 'right' },
+                caso4_start: { background: 'oficina', speaker: 'valentina', text: 'Gracias por recibirme, Doctor Villegas. Soy ingeniera de software. Desarrollé un programa de contabilidad y se lo licencié a una firma de asesores: una <keyword>licencia</keyword>, para un solo equipo. Ayer fui a darles soporte y lo encontré instalado en la red, funcionando en veinte computadores.', next: 'caso4_presentacion_2', avatarDirection: 'right' },
+                caso4_presentacion_2: { background: 'oficina', speaker: 'octavio', text: 'Nosotros ya pagamos por ese programa y lo usamos dentro de nuestra propia oficina. Además hicimos copias en varios discos duros “por seguridad”. No veo cuál es el problema.', next: 'caso4_pregunta_1', avatarDirection: 'right' },
                 caso4_pregunta_1: {
                     background: 'oficina',
                     speaker: 'villegas',
-                    text: 'Primero la base, ${playerName}. ¿El <keyword>programa de ordenador</keyword> de Sofía está protegido por el derecho de autor?',
+                    text: 'Primero la base, ${playerName}. ¿El <keyword>programa de ordenador</keyword> de Valentina está protegido por el derecho de autor?',
                     choices: [
                         { text: 'Sí, como obra literaria: código fuente, código objeto y manuales.', next: 'caso4_r1_ok', efecto: 1 },
                         { text: 'No. El software solo se protege si se patenta.', next: 'caso4_r1_badA', efecto: -1 },
@@ -485,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 caso4_r1_badB: { speaker: 'villegas', text: 'La protección cubre tanto el código fuente como el código objeto, y tanto los programas operativos como los aplicativos (Decisión 351, art. 23). También la documentación técnica y los manuales de uso.', next: 'caso4_pregunta_1', avatarDirection: 'left' },
                 caso4_r1_ok: {
                     speaker: 'villegas',
-                    text: 'Correcto, y sin necesidad de registro. Ahora el argumento del gerente: “Pagamos la licencia, podemos usarlo como queramos”. ¿Tiene razón?',
+                    text: 'Correcto, y sin necesidad de registro. Ahora revisemos el argumento de Octavio: “Pagamos la licencia, podemos usarlo como queramos en la firma”. ¿Tiene razón?',
                     choices: [
                         { text: 'No. La licencia solo cubre el uso pactado: un equipo. El uso en red necesita otra autorización.', next: 'caso4_r2_ok', efecto: 1 },
                         { text: 'Sí. Al pagar la licencia, el programa pasó a ser suyo.', next: 'caso4_r2_badA', efecto: -1 },
@@ -509,7 +564,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 caso4_r3_badB: { speaker: 'villegas', text: 'La <keyword>reproducción</keyword> es un derecho exclusivo aunque no haya venta. La <keyword>copia de seguridad</keyword> es una excepción, y las excepciones se interpretan de forma restrictiva: solo sirve para reemplazar el ejemplar legítimo.', next: 'caso4_r2_ok', avatarDirection: 'left' },
                 caso4_r3_ok: {
                     speaker: 'villegas',
-                    text: 'Bien. Sofía quiere que mañana mismo un juez ordene el secuestro de los veinte computadores. Es posible pedir una <keyword>medida cautelar</keyword>, pero ¿qué debemos advertirle antes?',
+                    text: 'Bien. Valentina quiere acudir mañana mismo al juzgado civil para pedir el secuestro de los veinte computadores como <keyword>medida cautelar</keyword>.',
+                    next: 'caso4_jueza_cautelar',
+                    avatarDirection: 'left'
+                },
+                caso4_jueza_cautelar: {
+                    background: 'oficina',
+                    speaker: 'jueza',
+                    text: 'Como jueza civil puedo ordenar el cese de la actividad ilícita y el secuestro de los ejemplares o equipos, pero quien solicita la <keyword>medida cautelar</keyword> debe prestar <keyword>caución</keyword> e identificar con precisión al infractor y los bienes.',
+                    next: 'caso4_pregunta_4',
+                    avatarDirection: 'right'
+                },
+                caso4_pregunta_4: {
+                    background: 'oficina',
+                    speaker: 'villegas',
+                    text: 'Teniendo en cuenta la advertencia del juzgado, ¿qué debemos prevenirle a Valentina antes de pedir la <keyword>medida cautelar</keyword>, ${playerName}?',
                     choices: [
                         { text: 'Que identifique bien al infractor y los equipos: si la medida es infundada o afecta a un tercero, ella responde.', next: 'caso4_r4_ok', efecto: 1 },
                         { text: 'Nada. Las medidas cautelares nunca generan responsabilidad para quien las pide.', next: 'caso4_r4_badA', efecto: -1 },
@@ -517,11 +586,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     ],
                     avatarDirection: 'left'
                 },
-                caso4_r4_badA: { speaker: 'villegas', text: 'Sí la generan; por eso se exige <keyword>caución</keyword>. En el caso que estudió el Tribunal Andino (24-IP-98), una sociedad alegó que el secuestro había recaído sobre sus bienes y no sobre los de la empresa investigada, y demandó por daños.', next: 'caso4_r3_ok', avatarDirection: 'left' },
-                caso4_r4_badB: { speaker: 'villegas', text: 'Al contrario: las medidas cautelares pueden pedirse antes de la demanda. La autoridad puede ordenar el cese de la actividad ilícita y el secuestro de los ejemplares y de los medios usados para la infracción (Decisión 351, art. 56).', next: 'caso4_r3_ok', avatarDirection: 'left' },
+                caso4_r4_badA: { speaker: 'villegas', text: 'Sí la generan; por eso se exige <keyword>caución</keyword>. En el caso que estudió el Tribunal Andino (24-IP-98), una sociedad alegó que el secuestro había recaído sobre sus bienes y no sobre los de la empresa investigada, y demandó por daños.', next: 'caso4_pregunta_4', avatarDirection: 'left' },
+                caso4_r4_badB: { speaker: 'villegas', text: 'Al contrario: las medidas cautelares pueden pedirse antes de la demanda. La autoridad puede ordenar el cese de la actividad ilícita y el secuestro de los ejemplares y de los medios usados para la infracción (Decisión 351, art. 56).', next: 'caso4_pregunta_4', avatarDirection: 'left' },
                 caso4_r4_ok: {
                     speaker: 'villegas',
-                    text: 'Correcto: verificar primero, pedir después. Último punto. El gerente se defiende: “Yo no instalé nada; lo hizo el técnico. Yo solo lo permití”. ¿Eso lo exonera?',
+                    text: 'Correcto: verificar primero, pedir después. Escuchemos la última excusa de Octavio.',
+                    next: 'caso4_octavio_excusa',
+                    avatarDirection: 'left'
+                },
+                caso4_octavio_excusa: {
+                    background: 'oficina',
+                    speaker: 'octavio',
+                    text: 'Un momento: a mí no me metan en eso. Yo no instalé nada en la red; eso lo hizo el técnico de sistemas. Yo solo lo permití como gerente.',
+                    next: 'caso4_pregunta_5',
+                    avatarDirection: 'right'
+                },
+                caso4_pregunta_5: {
+                    background: 'oficina',
+                    speaker: 'villegas',
+                    text: 'Octavio dice que él no instaló las copias, que solo lo permitió. ¿Eso lo exonera, ${playerName}?',
                     choices: [
                         { text: 'No. Quien autoriza o apoya el uso sin permiso del titular responde solidariamente.', next: 'caso4_r5_ok', efecto: 1 },
                         { text: 'Sí. Solo responde quien materialmente hizo las copias.', next: 'caso4_r5_badA', efecto: -1 },
@@ -529,8 +612,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     ],
                     avatarDirection: 'left'
                 },
-                caso4_r5_badA: { speaker: 'villegas', text: 'Nadie puede autorizar la utilización de una obra, ni prestar su apoyo para ello, si el usuario no tiene autorización previa y expresa del titular. Quien lo hace es solidariamente responsable (Decisión 351, art. 54).', next: 'caso4_r4_ok', avatarDirection: 'left' },
-                caso4_r5_badB: { speaker: 'villegas', text: 'El artículo 54 de la Decisión 351 se refiere a toda persona, natural o jurídica: alcanza a ambas. Y según el Tribunal Andino, apoyar incluye permitir o tolerar: también las conductas omisivas.', next: 'caso4_r4_ok', avatarDirection: 'left' },
+                caso4_r5_badA: { speaker: 'villegas', text: 'Nadie puede autorizar la utilización de una obra, ni prestar su apoyo para ello, si el usuario no tiene autorización previa y expresa del titular. Quien lo hace es solidariamente responsable (Decisión 351, art. 54).', next: 'caso4_pregunta_5', avatarDirection: 'left' },
+                caso4_r5_badB: { speaker: 'villegas', text: 'El artículo 54 de la Decisión 351 se refiere a toda persona, natural o jurídica: alcanza a ambas. Y según el Tribunal Andino, apoyar incluye permitir o tolerar: también las conductas omisivas.', next: 'caso4_pregunta_5', avatarDirection: 'left' },
                 caso4_r5_ok: { speaker: 'villegas', text: 'Exacto: <keyword>responsabilidad solidaria</keyword> (Decisión 351, art. 54). Requeriremos a la firma para que regularice sus licencias o cese el uso, y dejaremos lista la solicitud de medidas con su caución.', next: 'evaluar_final_caso4', avatarDirection: 'left' },
                 evaluar_final_caso4: {
                     logic: true,
@@ -540,7 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         else showNode('caso4_final_repaso');
                     }
                 },
-                caso4_final_excelente: { speaker: 'villegas', text: 'Muy bien, ${playerName}. Entendiste que una licencia delimita y no regala, y que una medida cautelar mal pedida se devuelve contra el cliente. Así se asesora.', end: true, avatarDirection: 'left' },
+                caso4_final_excelente: { speaker: 'villegas', text: 'Muy bien, ${playerName}. Entendiste que una licencia delimita y no regala, y que una medida cautelar mal pedida se devuelve contra la cliente. Así se asesora a Valentina.', end: true, avatarDirection: 'left' },
                 caso4_final_adecuado: { speaker: 'villegas', text: 'Buen trabajo, ${playerName}. Vas bien, pero afina dos puntos: el alcance exacto de la licencia y los riesgos de pedir un secuestro sin verificar.', end: true, avatarDirection: 'left' },
                 caso4_final_repaso: { speaker: 'villegas', text: '${playerName}, repasa cómo se protege el software y qué cubre una licencia: Decisión 351, arts. 23, 24, 26 y 31. Luego vuelve sobre las medidas cautelares y la responsabilidad solidaria (arts. 54 y 56).', end: true, avatarDirection: 'left' }
             }
@@ -553,12 +636,12 @@ document.addEventListener('DOMContentLoaded', () => {
             startNode: 'caso5_start',
             title: 'Caso 5: Se Suspende la Función',
             nodes: {
-                caso5_start: { background: 'oficina', speaker: 'ricardo', text: 'Necesito ayuda urgente. Soy dramaturgo. Un empresario anuncia para este sábado, en un teatro de Cali, el estreno de mi obra “La Última Cosecha”. Jamás le di autorización. Hoy es miércoles y yo vivo en Bogotá.', next: 'caso5_presentacion_2', avatarDirection: 'right' },
-                caso5_presentacion_2: { background: 'oficina', speaker: 'ricardo', text: 'Ya vendió casi toda la boletería. Si espero a demandarlo, la función se hace, él cobra, y después vaya uno a encontrarlo.', next: 'caso5_pregunta_1', avatarDirection: 'right' },
+                caso5_start: { background: 'oficina', speaker: 'julian', text: 'Necesito ayuda urgente, Doctor Villegas. Soy dramaturgo. Fabio, un empresario de espectáculos, anuncia para este sábado en un teatro de Cali el estreno de mi obra “La Última Cosecha”. Jamás le di autorización. Hoy es miércoles y yo vivo en Bogotá.', next: 'caso5_presentacion_2', avatarDirection: 'right' },
+                caso5_presentacion_2: { background: 'oficina', speaker: 'julian', text: 'Ya vendió casi toda la boletería. Si espero a un juicio ordinario, la función se hace este sábado, él cobra la taquilla y después vaya uno a encontrarlo.', next: 'caso5_pregunta_1', avatarDirection: 'right' },
                 caso5_pregunta_1: {
                     background: 'oficina',
                     speaker: 'villegas',
-                    text: 'El tiempo es el problema, ${playerName}. ¿Qué herramienta le da la ley a Ricardo para actuar antes del sábado?',
+                    text: 'El tiempo es el problema, ${playerName}. ¿Qué herramienta le da la ley a Julián para actuar antes del sábado?',
                     choices: [
                         { text: 'Pedir al juez que suspenda la función y secuestre lo recaudado en taquilla.', next: 'caso5_r1_ok', efecto: 1 },
                         { text: 'Ninguna: mientras la función no ocurra, no hay infracción que reclamar.', next: 'caso5_r1_badA', efecto: -1 },
@@ -584,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     speaker: 'villegas',
                     text: 'Bien. La Corte Constitucional avaló esa competencia en la sentencia C-523 de 2009, porque facilita la protección inmediata. ¿Qué debemos acompañar a la solicitud?',
                     choices: [
-                        { text: 'Prueba sumaria del derecho de Ricardo y una caución por los posibles perjuicios.', next: 'caso5_r3_ok', efecto: 1 },
+                        { text: 'Prueba sumaria del derecho de Julián y una caución por los posibles perjuicios.', next: 'caso5_r3_ok', efecto: 1 },
                         { text: 'Una sentencia en firme que declare la infracción.', next: 'caso5_r3_badA', efecto: -1 },
                         { text: 'Nada: basta con que el autor lo afirme.', next: 'caso5_r3_badB', efecto: -1 }
                     ],
@@ -606,7 +689,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 caso5_r4_badB: { speaker: 'villegas', text: 'No necesariamente. Lo que la define no es el medio, sino que aún no ha sido controvertida. Aquí servirían el certificado de <keyword>registro</keyword> de la obra, el libreto publicado con su nombre o un contrato anterior.', next: 'caso5_r3_ok', avatarDirection: 'left' },
                 caso5_r4_ok: {
                     speaker: 'villegas',
-                    text: 'Exacto. El juez decreta la medida y el empresario protesta: “Me suspendieron sin oírme; violaron mi debido proceso”. ¿Qué respondió la Corte Constitucional a ese argumento?',
+                    text: 'Exacto. Con el certificado de registro del libreto y la póliza de <keyword>caución</keyword>, radicamos la solicitud urgente en Cali.',
+                    next: 'caso5_jueza_auto',
+                    avatarDirection: 'left'
+                },
+                caso5_jueza_auto: {
+                    background: 'oficina',
+                    speaker: 'jueza',
+                    text: 'Acreditada con <keyword>prueba sumaria</keyword> la autoría de Julián sobre “La Última Cosecha” y prestada la <keyword>caución</keyword> de ley, este despacho decreta la suspensión inmediata de la función y el <keyword>secuestro preventivo</keyword> de la taquilla.',
+                    next: 'caso5_fabio_protesta',
+                    avatarDirection: 'right'
+                },
+                caso5_fabio_protesta: {
+                    background: 'oficina',
+                    speaker: 'fabio',
+                    text: '¡Esto es un abuso! Yo invertí en publicidad y alquiler del teatro, y me suspenden el espectáculo sin siquiera haberme oído antes. ¡Están violando mi debido proceso!',
+                    next: 'caso5_pregunta_5',
+                    avatarDirection: 'right'
+                },
+                caso5_pregunta_5: {
+                    background: 'oficina',
+                    speaker: 'villegas',
+                    text: 'Fabio protesta porque le suspendieron la función sin oírlo previamente. ¿Qué respondió la Corte Constitucional a ese argumento, ${playerName}?',
                     choices: [
                         { text: 'Que no hay violación: la medida es provisional, no es sanción, y la caución cubre sus perjuicios.', next: 'caso5_r5_ok', efecto: 1 },
                         { text: 'Que tiene razón: ninguna medida puede decretarse sin oír antes al afectado.', next: 'caso5_r5_badA', efecto: -1 },
@@ -614,9 +718,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     ],
                     avatarDirection: 'left'
                 },
-                caso5_r5_badA: { speaker: 'villegas', text: 'La Corte declaró exequible el artículo 247 (C-523 de 2009). Las medidas cautelares se decretan antes de vencer en juicio justamente por su urgencia; el debate completo sobre la titularidad se da después, en el proceso.', next: 'caso5_r4_ok', avatarDirection: 'left' },
-                caso5_r5_badB: { speaker: 'villegas', text: 'La Corte no dijo eso. Advirtió que el legislador debe obrar con cuidado, porque la medida afecta a alguien que aún no ha sido vencido en juicio; por eso se exigen prueba, caución y proporcionalidad.', next: 'caso5_r4_ok', avatarDirection: 'left' },
-                caso5_r5_ok: { speaker: 'villegas', text: 'Así es. Pero recuérdale a Ricardo la otra cara: si al final su pretensión no prospera, deberá resarcir los perjuicios causados con la medida. Y antes de radicar, verifica el trámite vigente en el Código General del Proceso.', next: 'evaluar_final_caso5', avatarDirection: 'left' },
+                caso5_r5_badA: { speaker: 'villegas', text: 'La Corte declaró exequible el artículo 247 (C-523 de 2009). Las medidas cautelares se decretan antes de vencer en juicio justamente por su urgencia; el debate completo sobre la titularidad se da después, en el proceso.', next: 'caso5_pregunta_5', avatarDirection: 'left' },
+                caso5_r5_badB: { speaker: 'villegas', text: 'La Corte no dijo eso. Advirtió que el legislador debe obrar con cuidado, porque la medida afecta a alguien que aún no ha sido vencido en juicio; por eso se exigen prueba, caución y proporcionalidad.', next: 'caso5_pregunta_5', avatarDirection: 'left' },
+                caso5_r5_ok: { speaker: 'villegas', text: 'Así es. Pero recuérdale a Julián la otra cara: si al final su pretensión no prospera, deberá resarcir los perjuicios causados con la medida. Y antes de radicar la demanda, verifica el trámite vigente en el Código General del Proceso.', next: 'evaluar_final_caso5', avatarDirection: 'left' },
                 evaluar_final_caso5: {
                     logic: true,
                     onLoad: () => {
@@ -625,7 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         else showNode('caso5_final_repaso');
                     }
                 },
-                caso5_final_excelente: { speaker: 'villegas', text: 'Excelente, ${playerName}. Actuaste a tiempo, ante el juez correcto y con los requisitos completos. Ricardo llegará al sábado con su derecho protegido.', end: true, avatarDirection: 'left' },
+                caso5_final_excelente: { speaker: 'villegas', text: 'Excelente, ${playerName}. Actuaste a tiempo, ante la jueza correcta y con los requisitos completos. Julián llegará al sábado con su derecho protegido.', end: true, avatarDirection: 'left' },
                 caso5_final_adecuado: { speaker: 'villegas', text: 'Buen trabajo, ${playerName}. Conoces la herramienta, pero aún dudas en sus requisitos. Repasa qué es prueba sumaria y para qué sirve la caución.', end: true, avatarDirection: 'left' },
                 caso5_final_repaso: { speaker: 'villegas', text: '${playerName}, con una función a tres días no hay margen para dudar. Repasa los artículos 244 a 247 de la Ley 23 de 1982 y la sentencia C-523 de 2009.', end: true, avatarDirection: 'left' }
             }
@@ -692,7 +796,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 caso6_r4_badB: { speaker: 'villegas', text: 'Sí tiene que ver. Mantener y presentar el <keyword>comprobante de pago</keyword> al día es un requisito para ejercer la actividad económica cuando se ejecutan públicamente obras musicales (Ley 1801 de 2016, art. 87, num. 5).', next: 'caso6_r3_ok', avatarDirection: 'left' },
                 caso6_r4_ok: {
                     speaker: 'villegas',
-                    text: 'Correcto. No presentar el comprobante da lugar a multa y suspensión temporal de la actividad (Ley 1801 de 2016, art. 92, num. 2). Don Anselmo protesta: “Sin sentencia de un juez no pueden exigirme nada”. ¿Tiene razón?',
+                    text: 'Correcto. No presentar el comprobante da lugar a multa y suspensión temporal de la actividad (Ley 1801 de 2016, art. 92, num. 2). Veamos qué ocurre cuando la inspectora de policía visita el restaurante.',
+                    next: 'caso6_inspectora_visita',
+                    avatarDirection: 'left'
+                },
+                caso6_inspectora_visita: {
+                    background: 'granja',
+                    speaker: 'inspectora',
+                    text: 'Buenas tardes, Don Anselmo. En verificación de los requisitos de la Ley 1801 de 2016 (art. 87, num. 5), le solicito presentar el <keyword>comprobante de pago</keyword> vigente por las obras musicales de gestión individual que suenan en su establecimiento.',
+                    next: 'caso6_anselmo_protesta',
+                    avatarDirection: 'right'
+                },
+                caso6_anselmo_protesta: {
+                    background: 'granja',
+                    speaker: 'anselmo',
+                    text: '¡Un momento, señora inspectora! Sin la sentencia de un juez usted no puede exigirme ningún comprobante ni amenazarme con suspender el restaurante.',
+                    next: 'caso6_pregunta_5',
+                    avatarDirection: 'right'
+                },
+                caso6_pregunta_5: {
+                    background: 'oficina',
+                    speaker: 'villegas',
+                    text: 'Don Anselmo protesta: “Sin sentencia de un juez la inspectora no puede exigirme nada”. ¿Tiene razón, ${playerName}?',
                     choices: [
                         { text: 'No. Verificar un requisito no es cobrar una deuda; pero deben darle oportunidad de acreditarlo.', next: 'caso6_r5_ok', efecto: 1 },
                         { text: 'Sí. Ninguna autoridad puede exigir documentos sin orden judicial.', next: 'caso6_r5_badA', efecto: -1 },
@@ -700,8 +825,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     ],
                     avatarDirection: 'left'
                 },
-                caso6_r5_badA: { speaker: 'villegas', text: 'El Consejo de Estado resolvió un caso así en 2001: exigir los recibos no es librar un mandamiento de pago, es corroborar que se cumple una obligación. Por eso negó la tutela del restaurante.', next: 'caso6_r4_ok', avatarDirection: 'left' },
-                caso6_r5_badB: { speaker: 'villegas', text: 'Tampoco. En ese caso el cierre se consideró válido porque antes se le permitió a la propietaria acreditar el pago y exponer sus razones. Una actuación arbitraria sí podría controvertirse.', next: 'caso6_r4_ok', avatarDirection: 'left' },
+                caso6_r5_badA: { speaker: 'villegas', text: 'El Consejo de Estado resolvió un caso así en 2001: exigir los recibos no es librar un mandamiento de pago, es corroborar que se cumple una obligación. Por eso negó la tutela del restaurante.', next: 'caso6_pregunta_5', avatarDirection: 'left' },
+                caso6_r5_badB: { speaker: 'villegas', text: 'Tampoco. En ese caso el cierre se consideró válido porque antes se le permitió a la propietaria acreditar el pago y exponer sus razones. Una actuación arbitraria sí podría controvertirse.', next: 'caso6_pregunta_5', avatarDirection: 'left' },
                 caso6_r5_ok: {
                     speaker: 'villegas',
                     text: 'Exacto: control de un requisito, con debido proceso. Última pregunta. Sofía piensa afiliarse a una sociedad de gestión. Si lo hace y deja sin cobrar una liquidación, ¿la pierde?',

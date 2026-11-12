@@ -29,7 +29,7 @@ caso[ID]: {
 ```javascript
 nodo_id: {
     background: 'oficina|campo|granja',  // Fondo del escenario
-    speaker: 'villegas|anselmo|sofia|ricardo|jugador|none',  // Personaje que habla
+    speaker: 'villegas|sofia|ricardo|elena|hernan|valentina|julian|martin|octavio|fabio|anselmo|jueza|inspectora|laura|jugador|none',  // Personaje que habla
     text: 'Texto del diálogo con ${playerName} para el nombre del jugador',
     next: 'siguiente_nodo',  // Nodo que sigue automáticamente
     avatarDirection: 'left|right'  // Dirección del avatar
@@ -101,9 +101,19 @@ caso[ID]_final_repaso: {
 
 ### Personajes Disponibles
 - **villegas**: Abogado titular del despacho. Formula las preguntas y da la retroalimentación. Los clientes lo tratan de «Doctor Villegas».
-- **sofia**: Cliente mujer (Casos 1, 2, 4 y 6)
-- **ricardo**: Cliente hombre (Casos 1, 3 y 5)
+- **sofia**: Compositora (Casos 1 y 6)
+- **ricardo**: Productor musical (Caso 1)
+- **elena**: Escritora, autora del manuscrito (Caso 2)
+- **hernan**: Editor jurídico (Caso 3)
+- **valentina**: Ingeniera de software (Caso 4)
+- **julian**: Dramaturgo (Caso 5)
+- **martin**: Escritor que publicó la novela ajena (Caso 2)
+- **octavio**: Gerente de la firma que usa el software (Caso 4)
+- **fabio**: Empresario de espectáculos (Caso 5)
 - **anselmo**: Dueño de un restaurante campestre (Caso 6)
+- **jueza**: Jueza civil que decide las medidas cautelares (Casos 4 y 5)
+- **inspectora**: Inspectora de policía (Caso 6)
+- **laura**: Funcionaria de la DNDA (Caso 2)
 - **jugador**: El estudiante/usuario; Villegas lo llama por su nombre o «Colega»
 - **none**: Sin avatar visible
 
@@ -117,8 +127,8 @@ El nombre que se muestra sobre el diálogo sale de la constante `NOMBRES` de `ga
 
 ### Requisitos de la Imagen de un Personaje
 - **Formato**: PNG con fondo transparente.
-- **Proporción**: vertical, cercana a 3:4 (por ejemplo 896 × 1152 píxeles, como `avatar_villegas.png`).
-- **Encuadre**: de las rodillas hacia arriba, con el personaje ocupando casi toda la altura y las piernas cortadas por el borde inferior. El motor apoya la imagen en la base del escenario; un cuerpo entero con márgenes se ve pequeño al lado de los demás.
+- **Proporción**: vertical, cercana a 3:4 (por ejemplo 896 × 1152 o 896 × 1200 píxeles, como `avatar_villegas.png`).
+- **Encuadre**: de medio muslo hacia arriba, con el personaje ocupando casi toda la altura y las piernas cortadas por el borde inferior. El motor apoya la imagen en la base del escenario; un cuerpo entero con márgenes se ve pequeño al lado de los demás.
 - **Orientación**: de frente o girado levemente. El motor voltea la imagen cuando el nodo usa `avatarDirection: 'right'`, así que no debe llevar texto ni logotipos legibles.
 - **Estilo**: ilustración tipo anime de línea limpia, sombreado plano con degradados suaves, proporciones realistas y colores sobrios, igual que los avatares existentes.
 
