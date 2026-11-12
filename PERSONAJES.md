@@ -5,9 +5,10 @@ Reparto del juego y prompts con los que se generaron las imágenes. Los catorce 
 ## Cómo usar este archivo
 
 1. Copia el prompt completo del personaje en tu generador de imágenes. Están en inglés porque los generadores responden mejor así.
-2. Si el generador acepta una imagen de referencia de estilo, adjunta `avatares/avatar_villegas.png`. Es lo que más ayuda a mantener la coherencia.
+2. Si el generador acepta una imagen de referencia de estilo, adjunta `avatares/avatar_villegas.webp`. Es lo que más ayuda a mantener la coherencia.
 3. Guarda cada imagen en `avatares/` con el nombre de archivo indicado.
 4. Si la imagen sale con fondo blanco y no transparente, guárdala igual: el fondo se puede quitar después.
+5. Ejecuta `python optimizar_imagenes.py` en la carpeta del juego. Crea la copia liviana `avatar_[id].webp`, que es la que usa el juego; el PNG original se queda en la carpeta y no se publica.
 
 ## Requisitos de la imagen
 

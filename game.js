@@ -48,28 +48,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- RUTAS DE LAS IMÁGENES ---
     const AVATARS = {
-        villegas: "avatares/avatar_villegas.png",
-        jugador: "avatares/avatar_jugador.png",
-        anselmo: "avatares/avatar_anselmo.png",
-        sofia: "avatares/avatar_sofia.png",
-        ricardo: "avatares/avatar_ricardo.png",
-        elena: "avatares/avatar_elena.png",
-        hernan: "avatares/avatar_hernan.png",
-        valentina: "avatares/avatar_valentina.png",
-        julian: "avatares/avatar_julian.png",
-        martin: "avatares/avatar_martin.png",
-        octavio: "avatares/avatar_octavio.png",
-        fabio: "avatares/avatar_fabio.png",
-        jueza: "avatares/avatar_jueza.png",
-        inspectora: "avatares/avatar_inspectora.png",
-        laura: "avatares/avatar_laura.png",
+        villegas: "avatares/avatar_villegas.webp",
+        jugador: "avatares/avatar_jugador.webp",
+        anselmo: "avatares/avatar_anselmo.webp",
+        sofia: "avatares/avatar_sofia.webp",
+        ricardo: "avatares/avatar_ricardo.webp",
+        elena: "avatares/avatar_elena.webp",
+        hernan: "avatares/avatar_hernan.webp",
+        valentina: "avatares/avatar_valentina.webp",
+        julian: "avatares/avatar_julian.webp",
+        martin: "avatares/avatar_martin.webp",
+        octavio: "avatares/avatar_octavio.webp",
+        fabio: "avatares/avatar_fabio.webp",
+        jueza: "avatares/avatar_jueza.webp",
+        inspectora: "avatares/avatar_inspectora.webp",
+        laura: "avatares/avatar_laura.webp",
         none: ""
     };
     
     const BACKGROUNDS = {
         oficina: `url('bg/fondo_oficina.jpg')`,
         campo: `url('bg/fondo_campo.jpg')`,
-        granja: `url('bg/fondo_granja.png')`
+        granja: `url('bg/fondo_granja.jpg')`
     };
 
     // --- GLOSARIO DE TÉRMINOS JURÍDICOS ---
@@ -1038,7 +1038,7 @@ document.addEventListener('DOMContentLoaded', () => {
             backToMenuButton.onclick = () => {
                 gameContainer.style.display = 'none';
                 mainMenuContainer.style.display = 'flex';
-                document.body.style.backgroundImage = `url('bg/inicial.png')`;
+                document.body.style.backgroundImage = `url('bg/inicial.jpg')`;
                 actualizarBotonCarga();
             };
             choicesBox.appendChild(backToMenuButton);

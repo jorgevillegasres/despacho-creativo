@@ -1,5 +1,7 @@
 # Ajustes locales de herramientas: no forman parte del juego
 .claude/
 
-# Respaldos de los avatares de cuerpo entero: el juego no los usa
-avatares/*_cuerpo_entero.png
+# Imágenes originales, pesadas. El juego usa las copias livianas (.webp y .jpg)
+# que genera optimizar_imagenes.py
+avatares/*.png
+bg/*.png

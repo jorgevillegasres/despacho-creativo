@@ -121,13 +121,14 @@ El nombre que se muestra sobre el diálogo sale de la constante `NOMBRES` de `ga
 
 ### Cómo Agregar un Personaje
 1. Guardar la imagen en `avatares/` con el nombre `avatar_[id].png` (minúsculas, sin tildes ni espacios).
-2. Agregar la ruta en la constante `AVATARS` de `game.js`: `elena: "avatares/avatar_elena.png"`.
-3. Agregar el nombre visible en la constante `NOMBRES`: `elena: 'Elena'`.
-4. Usar el `id` en el campo `speaker` de los nodos.
+2. Ejecutar `python optimizar_imagenes.py` en la carpeta del juego. Crea `avatar_[id].webp`, la copia liviana que usa el juego; el PNG original se queda en la carpeta y no se publica.
+3. Agregar la ruta en la constante `AVATARS` de `game.js`: `elena: "avatares/avatar_elena.webp"`.
+4. Agregar el nombre visible en la constante `NOMBRES`: `elena: 'Elena'`.
+5. Usar el `id` en el campo `speaker` de los nodos.
 
 ### Requisitos de la Imagen de un Personaje
 - **Formato**: PNG con fondo transparente.
-- **Proporción**: vertical, cercana a 3:4 (por ejemplo 896 × 1152 o 896 × 1200 píxeles, como `avatar_villegas.png`).
+- **Proporción**: vertical, cercana a 3:4 (por ejemplo 896 × 1152 o 896 × 1200 píxeles, como el avatar de Villegas).
 - **Encuadre**: de medio muslo hacia arriba, con el personaje ocupando casi toda la altura y las piernas cortadas por el borde inferior. El motor apoya la imagen en la base del escenario; un cuerpo entero con márgenes se ve pequeño al lado de los demás.
 - **Orientación**: de frente o girado levemente. El motor voltea la imagen cuando el nodo usa `avatarDirection: 'right'`, así que no debe llevar texto ni logotipos legibles.
 - **Estilo**: ilustración tipo anime de línea limpia, sombreado plano con degradados suaves, proporciones realistas y colores sobrios, igual que los avatares existentes.
@@ -135,7 +136,9 @@ El nombre que se muestra sobre el diálogo sale de la constante `NOMBRES` de `ga
 ### Fondos Disponibles
 - **oficina**: `bg/fondo_oficina.jpg`
 - **campo**: `bg/fondo_campo.jpg` 
-- **granja**: `bg/fondo_granja.png`
+- **granja**: `bg/fondo_granja.jpg`
+
+Un fondo nuevo se guarda en `bg/` (en PNG o JPG) y se pasa por `python optimizar_imagenes.py`, que deja un JPG liviano. Luego se agrega a la constante `BACKGROUNDS` de `game.js`.
 
 ### Direcciones de Avatar
 - **left**: Avatar mirando hacia la izquierda (por defecto)

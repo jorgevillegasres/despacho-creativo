@@ -11,7 +11,7 @@ body, html {
 }
 
 body {
-    background-image: url('bg/inicial.png'); /* Fondo del menú */
+    background-image: url('bg/inicial.jpg'); /* Fondo del menú */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -28,6 +28,7 @@ Los casos 2 a 6 parten de providencias del Tribunal de Justicia de la Comunidad 
 | `ESTRUCTURA_GUION.md` | Cómo se escribe un caso |
 | `PERSONAJES.md` | Reparto y guía para dibujar personajes |
 | `avatares/`, `bg/` | Personajes y fondos |
+| `optimizar_imagenes.py` | Genera las copias livianas de las imágenes (WebP y JPG) |
 
 ## Aviso
 
