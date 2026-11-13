@@ -28,7 +28,7 @@ caso[ID]: {
 ### Nodo Básico de Diálogo
 ```javascript
 nodo_id: {
-    background: 'oficina|campo|granja',  // Fondo del escenario
+    background: 'oficina',  // Fondo del escenario (ver «Fondos Disponibles»)
     speaker: 'villegas|sofia|ricardo|elena|hernan|valentina|julian|martin|octavio|fabio|anselmo|jueza|inspectora|laura|jugador|none',  // Personaje que habla
     text: 'Texto del diálogo con ${playerName} para el nombre del jugador',
     next: 'siguiente_nodo',  // Nodo que sigue automáticamente
@@ -134,11 +134,25 @@ El nombre que se muestra sobre el diálogo sale de la constante `NOMBRES` de `ga
 - **Estilo**: ilustración tipo anime de línea limpia, sombreado plano con degradados suaves, proporciones realistas y colores sobrios, igual que los avatares existentes.
 
 ### Fondos Disponibles
-- **oficina**: `bg/fondo_oficina.jpg`
-- **campo**: `bg/fondo_campo.jpg` 
-- **granja**: `bg/fondo_granja.jpg`
+| Clave | Archivo | Escena | Dónde se usa |
+|---|---|---|---|
+| `oficina` | `bg/fondo_oficina.jpg` | Despacho del Doctor Villegas | Casos 2, 4 y 6 |
+| `estudio` | `bg/fondo_estudio.jpg` | Estudio de grabación | Caso 1 |
+| `libreria` | `bg/fondo_libreria.jpg` | Librería | Caso 2 |
+| `dnda` | `bg/fondo_dnda.jpg` | Ventanilla de registro de la DNDA | Caso 2 |
+| `editorial` | `bg/fondo_editorial.jpg` | Editorial jurídica | Caso 3 |
+| `sistemas` | `bg/fondo_sistemas.jpg` | Oficina con equipos en red | Caso 4 |
+| `juzgado` | `bg/fondo_juzgado.jpg` | Sala de un juzgado | Casos 4 y 5 |
+| `teatro` | `bg/fondo_teatro.jpg` | Sala de teatro | Caso 5 |
+| `restaurante` | `bg/fondo_restaurante.jpg` | Restaurante campestre | Caso 6 |
+| `campo` | `bg/fondo_campo.jpg` | Paisaje rural | Libre para casos nuevos |
+| `granja` | `bg/fondo_granja.jpg` | Granja | Libre para casos nuevos |
+
+Si un nodo no indica `background`, conserva el fondo del nodo anterior. Aun así, conviene indicarlo en cada nodo: la partida guardada se retoma en ese nodo y el caso se lee mejor.
 
 Un fondo nuevo se guarda en `bg/` (en PNG o JPG) y se pasa por `python optimizar_imagenes.py`, que deja un JPG liviano. Luego se agrega a la constante `BACKGROUNDS` de `game.js`.
+
+El escenario mide 1280 × 720 (proporción 16:9). Conviene generar los fondos ya en 16:9 y sin franjas negras: si un archivo `fondo_[nombre]` es más ancho, el optimizador le recorta los lados, porque el escenario no los muestra.
 
 ### Direcciones de Avatar
 - **left**: Avatar mirando hacia la izquierda (por defecto)

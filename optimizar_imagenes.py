@@ -5,11 +5,15 @@ Requiere Pillow:                    pip install pillow
 
 - avatares/*.png  ->  avatares/*.webp   (conserva la transparencia)
 - bg/*.png        ->  bg/*.jpg
-- bg/*.jpg pesados se recomprimen en el mismo archivo
+- bg/*.jpg pesados se recomprimen en el mismo archivo; antes se guarda una
+  copia del original en bg/originales/, que no se publica
+- Los fondos de escena (bg/fondo_*) más anchos que 16:9 se recortan por los
+  lados: el escenario es 16:9 y no muestra el resto
 
 Solo procesa lo que falta o lo que cambió, así que puede ejecutarse cuantas
 veces haga falta. Los PNG originales se quedan en la carpeta y no se publican.
 """
+import shutil
 from pathlib import Path
 from PIL import Image
 
@@ -33,6 +37,15 @@ def reducir(im, ancho=None, alto=None):
     return im if f == 1 else im.resize((round(w * f), round(h * f)), Image.LANCZOS)
 
 
+def encuadrar(im, nombre):
+    """Recorta a 16:9, centrado, un fondo de escena que sea más ancho."""
+    ancho = round(im.height * 16 / 9)
+    if not nombre.startswith("fondo_") or im.width <= ancho:
+        return im
+    x = (im.width - ancho) // 2
+    return im.crop((x, 0, x + ancho, im.height))
+
+
 def avatares():
     for png in sorted((RAIZ / "avatares").glob("*.png")):
         if png.stem.endswith("_cuerpo_entero"):
@@ -51,14 +64,17 @@ def fondos():
     for png in sorted(carpeta.glob("*.png")):
         jpg = png.with_suffix(".jpg")
         if pendiente(png, jpg):
-            reducir(Image.open(png).convert("RGB"), ancho=ANCHO_FONDO).save(
+            reducir(encuadrar(Image.open(png).convert("RGB"), png.name), ancho=ANCHO_FONDO).save(
                 jpg, "JPEG", quality=85, optimize=True, progressive=True)
             print(f"{png.name}: {kb(png)} -> {jpg.name}: {kb(jpg)}")
     for jpg in sorted(carpeta.glob("*.jpg")):
         im = Image.open(jpg)
         if jpg.stat().st_size / (im.width * im.height) > JPG_PESADO:
             antes = kb(jpg)
-            im = reducir(im.convert("RGB"), ancho=ANCHO_FONDO)
+            respaldo = carpeta / "originales" / jpg.name
+            respaldo.parent.mkdir(exist_ok=True)
+            shutil.copy2(jpg, respaldo)
+            im = reducir(encuadrar(im.convert("RGB"), jpg.name), ancho=ANCHO_FONDO)
             im.save(jpg, "JPEG", quality=85, optimize=True, progressive=True)
             print(f"{jpg.name}: {antes} -> {kb(jpg)}")
 
